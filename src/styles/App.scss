@@ -1,0 +1,35 @@
+@use 'ChatMessage';
+@import 'variables';
+
+// Font Awesome for icons
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css");
+
+// home
+* {
+  box-sizing: border-box;
+  transition: all 1s ease-in-out;
+}
+
+#root {
+  background-color: $black;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+
+.App {
+  background-color: $black;
+  text-align: center;
+  color: $black;
+  max-width: 600px;
+  margin: auto;
+  padding: 5px;
+}
+
+.side-menu {
+  width: 240px;
+  padding: 10px;
+  background-color: $primary_black;
+}

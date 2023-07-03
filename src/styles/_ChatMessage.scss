@@ -1,0 +1,140 @@
+@import 'variables';
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: $white;
+    padding: 10px 0px;
+    border-bottom: 1px solid $lightgray;
+
+    .btn-new-chat {
+        border-radius: 5px;
+        text-align: left;
+        cursor: pointer;
+
+        &:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+    }
+}
+
+.chat-body-container {
+    font-family: "Helvetica Neue", Helvetica, sans-serif;
+    font-size: 20px;
+    font-weight: normal;
+    display: flex;
+    flex-direction: column;
+    background-color: $black;
+    max-height: 90vh;
+    overflow: scroll;
+}
+
+p {
+    max-width: 80%;
+    word-wrap: break-word;
+    margin-bottom: 12px;
+    line-height: 24px;
+    position: relative;
+    padding: 10px 15px;
+    border-radius: 25px;
+
+    &:before,
+    &:after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        height: 25px;
+    }
+}
+
+.send {
+    color: $white;
+    background: $send-bg;
+    align-self: flex-end;
+    text-align: right;
+
+    &:before {
+        right: -7px;
+        width: 20px;
+        background-color: $send-bg;
+        border-bottom-left-radius: 16px 14px;
+    }
+
+    &:after {
+        right: -26px;
+        width: 26px;
+        background-color: $black;
+        border-bottom-left-radius: 10px;
+    }
+}
+
+.receive {
+    background: $receive-bg;
+    color: $white;
+    align-self: flex-start;
+    text-align: left;
+
+    &:before {
+        left: -7px;
+        width: 20px;
+        background-color: $receive-bg;
+        border-bottom-right-radius: 16px 14px;
+    }
+
+    &:after {
+        left: -26px;
+        width: 26px;
+        background-color: $black;
+        border-bottom-right-radius: 10px;
+    }
+}
+
+// INPUT SECTION 
+.chat-input-container {
+    padding: 24px 0px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    max-width: 600px;
+    margin: auto;
+
+    .form {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border: 1px solid $lightgray;
+        border-radius: 50px;
+        background-color: $black;
+        box-shadow: 1px 0px 20px 20px black;
+
+        .chat-input {
+            border-radius: 50px 0px 0px 50px;
+            background-color: $black;
+            width: 80%;
+            outline: none;
+            color: $white;
+            font-size: 20px;
+            padding-left: 10px;
+            border-color: $black;
+            border: none;
+        }
+
+        .btn-submit {
+            border: none;
+            width: 40px;
+            height: 40px;
+            padding: 0px;
+            border-radius: 50%;
+            font-size: xx-large;
+            color: $black;
+            background-color: $lightgray;
+
+            &.active {
+                color: $white;
+                background-color: $green;
+            }
+        }
+    }
+}
