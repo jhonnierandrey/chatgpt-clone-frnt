@@ -7,8 +7,12 @@ function App() {
   const [models, setModels] = useState([]);
   const [input, setInput] = useState("");
   const [chatLog, setChatLog] = useState<any>([
-    { user: "gpt", message: "How can I help you today ?" },
+    {
+      user: "gpt",
+      message: "How can I help you today?",
+    },
   ]);
+
   const [currentModel, setCurrentModel] = useState("text-davinci-003");
 
   const clearChats = () => {
@@ -57,41 +61,40 @@ function App() {
       .then((data) => setModels(data.models));
   };
 
-  // useEffect(() => {
-  //   getEngines();
-  // }, []);
+  useEffect(() => {
+    getEngines();
+  }, []);
 
   return (
     <div className="App">
+      <nav>
+        <span></span>
+        <span>{chatgptlogo}</span>
+        <span className="btn-new-chat" onClick={clearChats}>
+          <i className="fas fa-edit"></i>
+        </span>
+      </nav>
       <section className="chat-body-container">
-        <nav>
-          <span></span>
-          <span>{chatgptlogo}</span>
-          <span className="btn-new-chat" onClick={clearChats}>
-            <i className="fas fa-edit"></i>
-          </span>
-        </nav>
         {chatLog.map((message: any, index: any) => (
           <ChatMessage message={message} key={index} />
         ))}
-
-        <div className="chat-input-container">
-          <form onSubmit={(e) => handleSubmit(e)} className="form">
-            <input
-              className="chat-input"
-              value={input}
-              onChange={(e) => setInput(e.target.value)}
-            />
-            <button
-              type="submit"
-              className={`btn-submit ${input.length >= 3 && "active"}`}
-              disabled={input.length >= 3 ? false : true}
-            >
-              <i className="fas fa-arrow-up"></i>
-            </button>
-          </form>
-        </div>
       </section>
+      <div className="chat-input-container">
+        <form onSubmit={(e) => handleSubmit(e)} className="form">
+          <input
+            className="chat-input"
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+          />
+          <button
+            type="submit"
+            className={`btn-submit ${input.length >= 3 && "active"}`}
+            disabled={input.length >= 3 ? false : true}
+          >
+            <i className="fas fa-arrow-up"></i>
+          </button>
+        </form>
+      </div>
     </div>
   );
 }
