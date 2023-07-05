@@ -11,7 +11,7 @@
 1. Clone this repo
 
    ```bash
-       git clone https://github.com/jhonnierandrey/dasimaginare
+       git clone https://github.com/jhonnierandrey/chatgpt-clone-frnt
    ```
 
 2. Install all the required dependencies.
